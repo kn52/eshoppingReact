@@ -1,0 +1,281 @@
+.ProductReviewMainDiv{
+    min-height: calc(100vh - 102px);
+    position:relative;
+}
+.product-review-main {
+    display: flex;
+    justify-content: center;
+    min-height: 632px;
+    margin-top: 20px;
+
+}
+
+.product-review-product-info {
+    display: flex;
+    width: 90%;
+    padding-left: 5%
+
+}
+
+.product-review-book-info {
+    min-height: 320px;
+    max-height: 600px;
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.product-rating {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.product-rating-count {
+    font-size: 16px;
+    background-color: green;
+    color: white;
+    width: 2%;
+    padding: 6px;
+    padding-left: 10px;
+}
+
+.product-review-rating-icon {
+    background-color: green;
+    color: white;
+    width: 4%;
+    padding-top: 5px;
+
+}
+
+#iconSize {
+    height: 18px;
+}
+
+.product-review-book-price {
+    font-size: 25px;
+    margin-bottom: 5px;
+
+}
+
+.product-review-bookdetail {
+    font-size: 16px;
+    color: silver;
+    margin-top: 15px;
+    align-self: flex-start;
+}
+
+.product-review-bookdetail-size {
+    font-size: 15px;
+    line-height: 16px;
+    text-align: justify;
+    align-self: flex-start;
+    margin-top: 0;
+}
+
+.customer-feedback {
+    font-size: 16px;
+    margin-top: 15px;
+    align-self: flex-start;
+}
+
+.product-review-font {
+    font-family: Roboto, serif;
+    font-weight: normal;
+
+}
+
+.customer-feedback-form {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 250px;
+    padding-left: 35px;
+}
+
+#productreviewimage {
+    height: 450px;
+    width: 350px;
+    border: 1px solid lightgrey;
+    padding: 15px;
+}
+
+.product-review-book-name {
+    font-size: 28px;
+    margin-bottom: 5px;
+    align-self: flex-start;
+}
+
+.product-review-author-name {
+    font-size: 18px;
+    color: silver;
+    margin-bottom: 5px;
+    align-self: flex-start;
+
+
+}
+
+.product-review-book-price {
+    font-size: 23px;
+    align-self: flex-start;
+}
+
+.product-feedback-container {
+    margin-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.customer-profile-icon {
+    background-color: whitesmoke;
+    border: 1px solid silver;
+    border-radius: 32px;
+    width: 32px;
+    height: 32px;
+    padding: 3px 8px;
+}
+
+.customer-profile-icon-content {
+    font-size: 15px;
+    color: #b90f4b;
+    font-weight: bold;
+}
+
+.customer-feedback-name {
+    margin: 5px;
+}
+
+.product-review-book-name-size {
+    font-size: 15px;
+
+}
+
+.product-customer-rating {
+    display: flex !important;
+    margin-left: 35px;
+    align-items: flex-start;
+}
+
+.product-feedback {
+    overflow-wrap: break-word;
+    font-size: 12px;
+    margin-left: 40px;
+    text-align: left;
+}
+
+.product-feedback-button-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 7%;
+}
+
+#productfeedbackbutton {
+    background-color: #b90f4b;
+    color: white;
+    width: 15%;
+    padding: 5px;
+}
+
+.product-info {
+    width: 60%;
+}
+
+.read-more {
+    cursor: pointer;
+    color: #b90f4b;
+}
+
+:hover.read-more {
+    color: blue;
+}
+
+.product-rating-count {
+    width: 5%;
+}
+
+@media screen and (max-width: 1024px) {
+
+    #productreviewimage {
+        height: 340px;
+        width: 250px;
+    }
+
+    .product-info {
+        width: 55%;
+    }
+
+    .product-rating-count {
+        width: 4%;
+    }
+
+    .product-review-rating-icon {
+        width: 6%;
+    }
+
+
+}
+
+@media screen and (max-width: 768px) {
+    #productreviewimage {
+        height: 290px;
+        width: 200px;
+    }
+
+    .product-review-rating-icon {
+        width: 8%;
+    }
+
+    #productfeedbackbutton {
+        background-color: #b90f4b;
+        color: white;
+        width: 20%;
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .customer-feedback-form {
+        height: 220px;
+    }
+
+    .product-review-book-name {
+        font-size: 25px;
+    }
+
+    .product-review-book-price {
+        font-size: 23px;
+        align-self: flex-start;
+    }
+
+}
+
+@media screen and (max-width: 479px) {
+    .product-review-product-info {
+        flex-direction: column;
+        padding-left: 0;
+    }
+
+    .product-review-book-info {
+        min-height: 320px;
+        max-height: 600px;
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #productreviewimage {
+        height: 390px;
+        width: 99%;
+    }
+
+    .product-info {
+        width: 99%;
+        margin-top: 20px;
+    }
+
+    .product-rating-count {
+        width: 13%;
+    }
+}
+
+

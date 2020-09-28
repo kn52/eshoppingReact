@@ -1,0 +1,36 @@
+#myOrderContainer {
+    width: 75%;
+    height: auto;
+    margin-left: 10%;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#myOrderCart{
+    border-radius: 3px;
+    border: 1px solid #B1B1B1;
+    margin-bottom: 10px;
+}
+#OrderDate{
+    margin-left: 40px;
+    margin-bottom: 0;
+    margin-top: 10px;
+    display: flex;
+    padding-bottom: 0;
+}
+
+@media only screen and (max-width: 415px){
+    #myOrderContainer {
+        width: 95%;
+        margin-left: 3%;
+        font-size: 15px;
+        overflow-x: hidden;
+    }
+
+    #OrderDate{
+        margin-left: 10px;
+        font-size: 30px;
+        overflow-x: hidden;
+    }
+}

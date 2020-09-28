@@ -1,0 +1,237 @@
+#App-header {
+    background-color: #b90f4b;
+    padding-left: 8%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+#toolbar{
+    min-height: 0;
+}
+
+#App-icon {
+    font-size: 26px;
+    padding-bottom: 4px;
+}
+
+#Headers-font {
+    padding-left: 5px;
+    font-size: 18px;
+}
+
+#footer-font {
+    font-size: 10px;
+}
+
+#footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    padding: 8px;
+    background-color: #2E1D1E;
+}
+
+.grow {
+    flex-grow: 1
+}
+
+.search {
+    display: flex;
+    height: 30px;
+    border-radius: 6px;
+    background-color: white
+}
+
+.search_bar {
+    position: relative;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    left: 4%;
+    width: 40%;
+}
+
+.responsive_search_bar {
+    position: absolute;
+    width: 73%;
+    z-index: 1;
+}
+
+.searchIcon {
+    padding: 3px 5px;
+    height: 6px;
+}
+
+.search_Icon {
+    color:	black;
+    opacity: 20%;
+}
+
+.search_icon {
+    color:	snow;
+    opacity: 100%;
+}
+
+#searchText {
+    font-size: small;
+}
+
+.shoppingCartDiv {
+    font-size: 12px;
+}
+
+#cartIcon{
+    padding: 16px;
+}
+
+#profileIcon{
+    padding: 16px;
+    transition: none;
+    font-size: 22px;
+}
+
+.logoutDiv {
+    margin-right: 8%;
+    font-size: 12px;
+}
+
+#cartIcon {
+    font-size: 125%;
+    background-color: #b90f4b;
+}
+.MuiBadge-colorPrimary{
+    color: #b90f4b !important;
+    background-color: white !important;
+}
+
+.loginPopUp{
+    display: flex;
+    flex-direction: column;
+    font-size: 11px;
+    margin: 10px;
+    color: #B1B1B1;
+    width: 220px;
+}
+
+.loginSignUp{
+    border: 1px solid #b90f4b !important;
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+    align-self: center !important;
+    padding: 6px !important;
+    color: #b90f4b !important;
+}
+
+#logout{
+    border: 1px solid #b90f4b !important;
+    margin: 10px auto !important;
+    padding: 2px 20px !important;
+    color: #b90f4b !important;
+}
+
+.logoutTitle{
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0 0 5px 5px;
+}
+
+#mainDialogBox{
+    max-width: 800px;
+    background-color: transparent;
+}
+
+.myOrder{
+    display: flex;
+    padding: 2px 5px !important;
+    align-self: flex-start;
+}
+
+#listTitle{
+    margin: 2px 10px;
+    padding-top: 4px;
+    font-weight: normal;
+    font-size: 12px;
+}
+.MuiPaper-root.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthSm.MuiPaper-elevation24.MuiPaper-rounded{
+    position: inherit;
+    background: transparent;
+    box-shadow: none;
+    overflow-y: unset;
+    transition: none;
+    padding: 0;
+}
+
+
+.dialogueContent {
+    padding: 0 !important;
+    height: 500px;
+    width: 500px;
+
+}
+
+h6{
+    color: black;
+    font-size: 15px;
+    margin: 0 0 10px;
+}
+
+@media only screen and (max-width: 440px) {
+    #App-header {
+        padding-left: 1%;
+    }
+
+    #App-icon {
+        font-size: 20px;
+    }
+
+    #Headers-font {
+        font-size: 16px;
+    }
+
+    .shoppingCartDiv {
+        margin-right: 15px;
+    }
+
+    #profileIcon{
+        margin-right: -40px;
+        padding: 16px;
+        transition: none;
+        font-size: 22px;
+    }
+
+    .search_bar {
+        margin-left: calc(100vw - 266px);
+        width:0;
+    }
+
+    .responsive_search_bar {
+        margin-top: -2px !important;
+        max-width: calc(100vw - 100px);;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .search_bar {
+        margin-left: calc(100vw - 250px);
+        width:0;
+    }
+
+    .responsive_search_bar {
+        margin-top: -2px !important;
+        max-width: calc(100vw - 100px);;
+    }
+}
+
+@media screen and (min-width: 440px) and (max-width: 561px) {
+    .search_bar {
+        margin-left: calc(100vw - 395px);
+        width:0;
+    }
+
+    .responsive_search_bar {
+        margin-top: -1px !important;
+        max-width: calc(100vw - 100px);;
+    }
+}
