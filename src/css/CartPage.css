@@ -1,0 +1,149 @@
+#cartContainer {
+    background-color: #ffffff;
+    padding-left: 10%;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+#cartScroll {
+    height: 300px;
+    flex: 1;
+    overflow-y: hidden;
+    margin-right: 10px;
+}
+
+#cartScroll:hover {
+    overflow-y: scroll;
+}
+
+#orderScroll {
+    height: 280px;
+    flex: 1;
+    overflow-y: hidden;
+    margin-right: 10px;
+}
+
+#orderScroll:hover {
+    overflow-y: scroll;
+}
+
+#emptyCart {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 300px;
+}
+
+#expansionPanel {
+    border: 1px solid #e2e2e2;
+    width: 70vw;
+    margin-bottom: 20px;
+}
+
+#myCartHeader {
+    padding-top: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    margin-left: 5%;
+    font-size: 18px;
+    text-align: left;
+}
+
+#orderSummary {
+    padding-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+    font-size: 18px;
+    text-align: left;
+}
+
+#cartHeader {
+    margin-left: 3%;
+    font-size: 18px;
+}
+
+#editButton {
+    top: 2%;
+    right: 2%;
+    font-size: small;
+    position: absolute;
+}
+
+#radioButton {
+    margin: 0;
+    padding: 0;
+}
+
+#totalPrice {
+    width: 300px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    float: left;
+    margin-top: 2.5%;
+    margin-left: -2%;
+}
+.customerDetails{
+    margin-left: 2vw !important;
+   padding-right: 4vw !important;
+}
+#breadcrumb {
+    margin: 90px 10% 25px;
+}
+
+.phoneNumber, .pinCode, .landmark {
+    margin-left: 45px !important;
+}
+
+.processingDialog {
+    display: flex;
+    justify-content: center;
+    margin: auto auto;
+}
+
+.loaderDialog {
+    display: flex;
+    justify-content: center;
+    margin: auto auto;
+}
+
+.loaderText {
+    color: white;
+    text-align: center;
+    font-size: small;
+    margin: auto !important;
+}
+
+@media only screen and (max-width: 415px) {
+
+    #myCartHeader {
+        padding-top: 15px;
+        margin-bottom: 0;
+    }
+    #expansionPanel{
+        width: 80vw;
+    }
+
+    #breadcrumb {
+        margin: 80px 10% 2%;
+    }
+
+    #cartScroll {
+        overflow-x: hidden;
+    }
+
+    #orderScroll {
+        overflow-x: hidden;
+    }
+
+    .loaderDialog {
+        margin: auto !important;
+    }
+
+    .loaderText {
+        text-align: center !important;
+        margin: auto !important;
+        font-size: 14px !important;
+    }
+}

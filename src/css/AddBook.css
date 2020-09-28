@@ -1,0 +1,76 @@
+.AddBookMainDiv{
+    min-height: calc(100vh - 121px);
+    position:relative;
+}
+.container {
+    margin-top: 4%;
+    justify-content: center;
+}
+
+.MuiGrid-spacing-xs-1 > .MuiGrid-item {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.card {
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+}
+
+.selectBtn {
+    width: fit-content;
+}
+
+.input {
+    width: 200px;
+}
+
+.btn {
+    margin: 5px 5px 5px 10px !important;
+    padding: 5px;
+    width: 120px;
+}
+
+h3 {
+    padding: 3px;
+    margin: 3px;
+}
+
+@media only screen and (max-width: 768px) {
+    .root {
+        width: 80%;
+    }
+
+    .card {
+        width: 100%;
+        margin: auto;
+    }
+}
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
+    .root {
+        width: 35%;
+    }
+
+    .card {
+        width: 75%;
+        margin: auto;
+    }
+}
+
+@media only screen
+and (min-device-width: 1024px)
+and (max-device-width: 1500px)
+and (-webkit-min-device-pixel-ratio: 1) {
+    .root {
+        width: 35%;
+    }
+    .card {
+        width: 65%;
+        margin: auto;
+    }
+}

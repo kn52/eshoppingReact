@@ -1,0 +1,79 @@
+#homePageContainer {
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 50px;
+    min-height: calc(100vh - 129px);
+    position:relative;
+    min-width: 98vw;
+    max-height: fit-content;
+}
+
+.resultNotFound{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 300px;
+}
+
+.BooksCountSortFieldDiv {
+    display: flex;
+    padding-top: 30px;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 18px;
+    padding-bottom: 14px;
+}
+
+.BooksCountSortFieldDiv span {
+    color: #B1B1B1;
+    font-weight: bold;
+    font-size: 12px;
+    max-width: fit-content;
+}
+
+#sortField {
+    padding: 8px 14px 10px;
+    font-size: 14px;
+}
+
+.select-filter {
+    border: none;
+    outline: none;
+    width: 170px;
+    height: 1%;
+    margin-top: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+    #homePageContainer {
+        padding-left: 15vw;
+        padding-right: 15vw;
+    }
+}
+
+/* Media Query To Adjust BooksCount And Sort Field Div On Small Screen */
+@media only screen and (max-width: 400px) {
+    .BooksCountSortFieldDiv {
+        font-size: 12px;
+    }
+
+    .BooksCountSortFieldDiv span {
+        font-size: 9px;
+    }
+
+    #sortField {
+        padding: 8px 14px 10px;
+        font-size: 12px;
+    }
+
+    .select-filter {
+        width: 140px;
+        margin-top: 3px;
+    }
+}
+
+/*Skeleton Loader*/
+.MuiSkeleton-fitContent {
+     max-width: initial !important;
+}

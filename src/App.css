@@ -1,0 +1,50 @@
+.App {
+    text-align: center;
+    min-height:100%; padding:0; margin:0; position:relative;
+}
+
+.mainDiv {
+    min-height: 95vh;
+}
+
+@media (width: 411px) {
+    .mainDiv {
+        min-height: 95.7vh;
+    }
+}
+
+@media (width: 375px) {
+    .mainDiv {
+        min-height: 95.3vh;
+    }
+}
+
+@media (width: 320px) {
+    .mainDiv {
+        min-height: 94.5vh;
+    }
+}
+
+@media (width: 414px) {
+    .mainDiv {
+        min-height: 95.6vh;
+    }
+}
+
+@media (width: 375px) and (height: 812px) {
+    .mainDiv {
+        min-height: 96vh;
+    }
+}
+
+@media (width: 768px) {
+    .mainDiv {
+        min-height: 97vh;
+    }
+}
+
+@media (width: 1024px) {
+    .mainDiv {
+        min-height: 97.7vh;
+    }
+}

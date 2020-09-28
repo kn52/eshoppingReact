@@ -1,0 +1,49 @@
+.AdminLoginMainDiv{
+    margin-top: 133px;
+    min-height: calc(100vh - 164px);
+    position:relative;
+}
+.adminLogin {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #B1B1B1;
+    width: 28%;
+    height: 350px;
+    margin:auto;
+}
+
+.adminLabel {
+    color: #000;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    padding-bottom: 5px;
+    align-self: center;
+    text-transform: uppercase;
+    border-bottom: 3px solid;
+    border-color: #b90f4b;
+}
+
+.adminSignUp {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.loginButton {
+    width: 100%;
+    font-size: 18px !important;
+    background-color: #b90f4b !important;
+    color: white !important;
+}
+
+@media only screen and (max-width: 1024px) {
+    .adminLogin {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .adminLogin {
+        width: 90%;
+    }
+}

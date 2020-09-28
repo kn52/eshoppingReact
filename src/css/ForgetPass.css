@@ -1,0 +1,66 @@
+#paper {
+    width: 50%;
+    height: 350px;
+    margin:auto;
+    padding: 3% 4%;
+}
+
+.VerificationEmail{
+    margin-top: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#forgetText {
+    align-content: center;
+    margin-bottom: 2%;
+    font-size: 25px;
+}
+
+#message{
+    fontSize:15px;
+}
+
+#emailId{
+    fontSize: 13px;
+}
+
+.sendEmailContainer{
+    margin-top: 3%;
+}
+
+@media (max-width: 767px) {
+    #paper {
+        width: 90%;
+        margin-left: 5%;
+        height: 300px;
+    }
+
+    .sendEmailContainer{
+        margin-top: 120px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px){
+    #paper {
+        width: 70%;
+        margin-left: 16%;
+        height: 360px;
+    }
+
+    .sendEmailContainer{
+        margin-top: 120px !important;
+    }
+}
+
+@media (width: 1024px) {
+    #paper {
+        width: 55%;
+        margin-left: 22%;
+        height: 380px;
+    }
+
+    .sendEmailContainer{
+        margin-top: 120px !important;
+    }
+}

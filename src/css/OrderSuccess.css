@@ -1,0 +1,88 @@
+.orderTable {
+    border-collapse: collapse;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    margin-top: 30px;
+    height: 80px;
+}
+
+th, td {
+    border: 1px solid black;
+    font-size: 13px;
+    padding: 5px;
+}
+
+td {
+    padding: 5px 15px;
+    white-space: nowrap;
+    max-width: 200px;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+th {
+    background-color: #dcdcdc;
+    font-weight: normal;
+}
+
+#orderImage {
+    margin: 60px auto 0 auto;
+    width: 40%;
+}
+
+.orderMessage {
+    font-size: 18px;
+    width: 30%;
+    margin: -30px auto 10px;
+}
+
+.orderButton {
+    outline: none !important;
+    cursor: pointer;
+    margin-top: 20px !important;
+    height: 35px !important;
+    width: 200px !important;
+    background-color: #b90f4b !important;
+    border: none !important;
+    border-radius: 5px !important;
+    color: white !important;
+    font-size: 14px !important;
+    padding: 0.3% !important;
+}
+
+@media only screen and (max-width: 415px) {
+    #orderImage {
+        width: 100%;
+    }
+
+    .orderMessage {
+        font-size: 10px;
+        width: 50%;
+        margin-left: 25%;
+    }
+
+    .orderTable {
+        width: 1%;
+        margin-left: 10%;
+    }
+
+    td {
+        max-width: 110px;
+        width: 10px;
+    }
+
+    .orderTable {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .orderButton {
+        width: 150px;
+        margin-right: 1%;
+    }
+}
