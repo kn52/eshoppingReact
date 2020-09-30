@@ -14,6 +14,7 @@ import IconButton from "@material-ui/core/IconButton";
 import {Favorite} from "@material-ui/icons";
 import InfoIcon from '@material-ui/icons/Info';
 import DialogBoxPage from "../utils/CustomDialogBox";
+import Truncate from 'react-truncate';
 import WishListService from "../../services/WishListService";
 import CustomSnackBar from "../utils/CustomSnackBar";
 import AdminService from "../../services/AdminService";
@@ -140,6 +141,15 @@ class Book extends React.Component {
             state: {bookData: this.props.bookId}
         })
     };
+	
+	displayBookName = (bookname) => {
+		if(bookname.length>20)
+		{
+			let name = bookname.substring(0,21);
+			return name.concat('...');
+		}
+		return bookname;
+	}
 
     render() {
         const DetailTooltip = withStyles((theme) => ({
@@ -187,7 +197,9 @@ class Book extends React.Component {
                     </CardActionArea>
                 </DetailTooltip>
                 <CardContent id="cardBottom">
-                    <p className="bookTitle">{this.props.bookId.bookName}</p>
+                    <p className="bookTitle"> 
+					    {this.displayBookName(this.props.bookId.bookName)} 
+                    </p>
                     <IconButton className={this.state.url === "/" ? "wishlist" : "hideWishList"}
                                 onClick={this.dialogBoxOpen}
                                 color="inherit">

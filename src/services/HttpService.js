@@ -24,7 +24,7 @@ function get(url) {
 
 function update(url) {
     return Axios({
-        method: 'put', //you can set what request you want to be
+        method: 'put',
         url: `${BASEURL.appUrl}${url}`,
         headers: {
             'token': url.includes("admin")?localStorage.getItem('adminToken') : localStorage.getItem('userToken')
