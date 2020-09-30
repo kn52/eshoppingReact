@@ -14,7 +14,6 @@ import IconButton from "@material-ui/core/IconButton";
 import {Favorite} from "@material-ui/icons";
 import InfoIcon from '@material-ui/icons/Info';
 import DialogBoxPage from "../utils/CustomDialogBox";
-import Truncate from 'react-truncate';
 import WishListService from "../../services/WishListService";
 import CustomSnackBar from "../utils/CustomSnackBar";
 import AdminService from "../../services/AdminService";
