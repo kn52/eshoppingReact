@@ -1,7 +1,8 @@
 import { PERMISSION } from "../actions/AuthAction";
 
 const initialState = {
-    auth : true
+    adminAuth: true,
+    userAuth : true
 }
 
 const AuthReducer = ( state = initialState, action) => {
