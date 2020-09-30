@@ -1,15 +1,15 @@
-export const PERMISSION = 'PERMISSION';
+export const USER_PERMISSION = 'USER_PERMISSION';
 
-export const authAllowed = (bool) => {
+export const userAllowed = (bool) => {
     return {
-        type: PERMISSION,
+        type: USER_PERMISSION,
         payload:bool
     }
 }
 
-export const authNotAllowed = (bool) => {
+export const userNotAllowed = (bool) => {
     return {
-        type: PERMISSION,
+        type: USER_PERMISSION,
         payload:bool
     }
 }

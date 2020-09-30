@@ -1,16 +1,15 @@
-import { PERMISSION } from "../actions/AuthAction";
+import { USER_PERMISSION } from "../actions/AuthAction";
 
 const initialState = {
-    adminAuth: true,
     userAuth : true
 }
 
 const AuthReducer = ( state = initialState, action) => {
     switch (action.type) {
-        case PERMISSION:
+        case USER_PERMISSION:
             return {
                 ...state,
-                auth: action.payload
+                userAuth: action.payload
             }
     
         default: return state
