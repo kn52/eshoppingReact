@@ -11,15 +11,16 @@ import ResetPassword from "../components/user/ResetPassword";
 import VerifyEmail from "../components/user/VerifyEmail";
 import AdminLogin from "../components/admin/AdminLogin";
 import ProductReview from "../components/bookstore/ProductReview";
+import PrivateRoute from './PrivateRoute';
 
 export default class DefaultRoutes extends React.Component {
     render() {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route path={"/admin/add/book"} exact component={AddBook}/>
-                    <Route path={"/admin/update/book"} exact component={AddBook}/>
-                    <Route path={"/admin"} exact component={HomePage}/>
+                    <PrivateRoute path={"/admin/add/book"} exact component={AddBook}/>
+                    <PrivateRoute path={"/admin/update/book"} exact component={AddBook}/>
+                    <PrivateRoute path={"/admin"} exact component={HomePage}/>
                     <Route path={"/admin/login"} exact component={AdminLogin}/>
                     <Route path={"/"} exact component={HomePage}/>
                     <Route path={"/cart"} exact component={CartPage}/>

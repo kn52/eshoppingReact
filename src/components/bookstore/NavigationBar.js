@@ -36,7 +36,6 @@ class NavigationBar extends Component {
     addNewBook = () => {
         this.props.history.push({
             pathname: '/admin/add/book',
-            state: {authenticated: true}
         })
     }
     handleClickOpen = () => {

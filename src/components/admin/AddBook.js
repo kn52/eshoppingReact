@@ -24,8 +24,6 @@ import Footer from "../utils/Footer";
 class AddBook extends React.Component {
     constructor(props) {
         super(props);
-        if (this.props.location.state === undefined || localStorage.getItem('adminToken') === null)
-            window.location.href = '/admin/login';
         this.state = {
             isbnNumber: "",
             bookName: "",

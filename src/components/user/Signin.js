@@ -8,6 +8,8 @@ import Button from "@material-ui/core/Button";
 import {withRouter} from 'react-router';
 import AdminService from "../../services/AdminService";
 import {IconButton, InputAdornment} from "@material-ui/core";
+import { connect } from 'react-redux'; 
+import { userAllowed } from '../../redux/actions/AuthAction';
 
 class Signin extends Component {
 
@@ -71,7 +73,15 @@ class Signin extends Component {
             password: this.state.loginPassword,
         };
         console.log("User ", user);
-        let loginService = !this.props.location.pathname.includes("admin") ? new UserService().loginUser(user) : new AdminService().adminLogin(user);
+        let loginService = null;
+        if(!this.props.location.pathname.includes("admin"))
+        {
+            this.props.allowUser(true);
+            loginService = new UserService().loginUser(user)
+        }
+        else {
+            loginService = new AdminService().adminLogin(user);
+        }; 
         loginService.then((response) => {
             console.log(response);
             if (response.status === 200) {
@@ -86,7 +96,6 @@ class Signin extends Component {
                 (this.props.location.pathname === "admin/login" || this.props.location.pathname === "admin/login/" || this.props.location.pathname === "/admin/login") ?
                     this.props.history.push({
                         pathname: '/admin',
-                        state: {authenticated: true}
                     }) :
                     (this.props.location.pathname.includes("verify") || this.props.location.pathname.includes("reset")) ? window.location.href = "/" :
                         window.location.href = this.props.location.pathname;
@@ -160,4 +169,10 @@ class Signin extends Component {
     }
 }
 
-export default withRouter(Signin);
+const mapDispatchToProps = dispatch => {
+    return {
+        allowUser: (data)=> dispatch(userAllowed(data)),
+    }
+}
+
+export default connect(null,mapDispatchToProps)(withRouter(Signin));
