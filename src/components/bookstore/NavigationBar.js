@@ -126,9 +126,6 @@ class NavigationBar extends Component {
                             e BookStore
                         </Typography>
                     </Link>
-                    {/*{(!this.state.width<617) && this.getSearch(homepagePath,isAdminPage,isAdminLogin) }*/}
-
-                    
                     <div className="grow"/>
                     <div className="shoppingCartDiv"
                         style={homepagePath === '' || isAdminPage ? {visibility: "visible"} : {visibility: "hidden"}}

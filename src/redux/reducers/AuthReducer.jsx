@@ -5,7 +5,6 @@ const initialState = {
 }
 
 const AuthReducer = ( state = initialState, action) => {
-    console.log(state.userAuth);
     switch (action.type) {
         case USER_PERMISSION:
             return {

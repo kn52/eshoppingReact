@@ -82,7 +82,7 @@ export default class ProductReview extends React.Component {
         }, () => e.preventDefault());
         console.log(this.state.feedback);
         e.preventDefault();
-        //this.getFeedback(this.state.bookInfo);
+        // this.getFeedback(this.state.bookInfo);
         window.location.reload(false);
     }
 

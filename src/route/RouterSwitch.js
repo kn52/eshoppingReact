@@ -17,7 +17,8 @@ import { userAllowed } from '../redux/actions/AuthAction';
 
 class DefaultRoutes extends React.Component {
     
-    componentDidMount() {
+    constructor(props) {
+        super(props);
         localStorage.getItem('userToken') !==null && this.props.allowUser(true);
     }
 

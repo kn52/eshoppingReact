@@ -19,6 +19,6 @@ export default class CustomerService {
     }
 
     getCustomerFeedback(bookId){
-        return(get(`/customer/feedback/?bookId=${bookId}`))
+        return(get(`customer/feedback/?bookId=${bookId}`))
     }
 }

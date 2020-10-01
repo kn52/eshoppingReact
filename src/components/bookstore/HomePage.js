@@ -1,5 +1,4 @@
 import React, {Component, Fragment} from "react";
-
 import "../../css/scrollbar.css";
 import Grid from "@material-ui/core/Grid";
 import Card from "./Book";
@@ -14,6 +13,8 @@ import Loader from "../utils/Loader";
 import WishListService from "../../services/WishListService";
 import {withRouter} from "react-router";
 import Footer from "../utils/Footer";
+import { connect } from 'react-redux';
+import { addBooks } from '../../redux/actions/BookAction';
 
 class HomePage extends Component {
     constructor(props) {
@@ -43,10 +44,8 @@ class HomePage extends Component {
     }
 
     fetchCartList = () => {
-        if (!this.props.location.pathname.includes("admin") && localStorage.getItem("userToken") !== null) {
+        if (!this.props.location.pathname.includes("admin") && this.props.allowUser === true) {
             new CartService().fetchCart("cart").then((response) => {
-                    console.log("fff");
-                    console.log(response);
                     (response.data.statusCode === 200) ?
                         this.setState({
                             counter: response.data.data.length,
@@ -66,10 +65,8 @@ class HomePage extends Component {
     };
 
     fetchWishList = () => {
-        if (!this.props.location.pathname.includes("admin") && localStorage.getItem("userToken") !== null) {
-            new WishListService().fetchWishList().then((response) => {
-                    console.log("wishList");
-                    console.log(response);
+        if (!this.props.location.pathname.includes("admin") && this.props.allowUser === true) {
+            new WishListService().fetchWishList().then((response) => { 
                     (response.data.statusCode === 200) ?
                         this.setState({
                             wishList: response.data.data.map(value => value.book.isbnNumber).toString()
@@ -87,16 +84,21 @@ class HomePage extends Component {
         new BookStoreService().fetchBooks(this.state.pageValue, this.state.searchText, this.state.selectValue)
             .then((response) => {
                     console.log("fetchbook")
-                    console.log(response);
-                    response.data.statusCode === 208 ?
+                    console.log(response.data.data);
+                    if (response.data.statusCode === 208){
                         this.setState({
                             bookList: [],
                             count: 0,
-                        }) :
+                        })
+                    }
+                    else {
+                        const data = response.data.data;
+                        this.props.addBooks(data);
                         this.setState({
-                            bookList: response.data.data.content,
-                            count: response.data.data.totalElements,
+                            bookList: this.props.booklist.content,
+                            count: this.props.booklist.totalElements,
                         });
+                    }
                 }
             )
             .catch((error) => {
@@ -212,4 +214,18 @@ class HomePage extends Component {
     }
 }
 
-export default withRouter(HomePage);
+const mapToStateProps = state => {
+    console.log("Home "+ state.book.books);
+    return {
+        allowUser: state.auth.userAuth,
+        booklist: state.book.books,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addBooks: (books) => { dispatch(addBooks(books)) }
+    }
+}
+
+export default connect(mapToStateProps,mapDispatchToProps)(withRouter(HomePage));
