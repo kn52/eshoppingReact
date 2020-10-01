@@ -12,8 +12,15 @@ import VerifyEmail from "../components/user/VerifyEmail";
 import AdminLogin from "../components/admin/AdminLogin";
 import ProductReview from "../components/bookstore/ProductReview";
 import PrivateRoute from './PrivateRoute';
+import { connect } from 'react-redux';
+import { userAllowed } from '../redux/actions/AuthAction';
 
-export default class DefaultRoutes extends React.Component {
+class DefaultRoutes extends React.Component {
+    
+    componentDidMount() {
+        localStorage.getItem('userToken') !==null && this.props.allowUser(true);
+    }
+
     render() {
         return (
             <BrowserRouter>
@@ -23,10 +30,10 @@ export default class DefaultRoutes extends React.Component {
                     <PrivateRoute path={"/admin"} exact component={HomePage}/>
                     <Route path={"/admin/login"} exact component={AdminLogin}/>
                     <Route path={"/"} exact component={HomePage}/>
-                    <Route path={"/cart"} exact component={CartPage}/>
+                    <PrivateRoute path={"/cart"} exact component={CartPage}/>
                     <Route path={"/order/successful"} exact component={OrderSuccess}/>
-                    <Route path={"/wishlist"} exact component={WishlistPage}/>
-                    <Route path={"/orders"} exact component={MyOrderListPage}/>
+                    <PrivateRoute path={"/wishlist"} exact component={WishlistPage}/>
+                    <PrivateRoute path={"/orders"} exact component={MyOrderListPage}/>
                     <Route path={"/forget/password"} exact component={ForgetPassword}/>
                     <Route path={"/reset/password"} exact component={ResetPassword}/>
                     <Route path={"/verify/email/"} exact component={VerifyEmail}/>
@@ -36,3 +43,11 @@ export default class DefaultRoutes extends React.Component {
         );
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        allowUser: (data)=> dispatch(userAllowed(data)),
+    }
+}
+
+export default connect(null,mapDispatchToProps)(DefaultRoutes);

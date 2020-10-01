@@ -17,6 +17,7 @@ import DialogBoxPage from "../utils/CustomDialogBox";
 import WishListService from "../../services/WishListService";
 import CustomSnackBar from "../utils/CustomSnackBar";
 import AdminService from "../../services/AdminService";
+import { connect } from 'react-redux';
 
 class Book extends React.Component {
     constructor(props) {
@@ -233,4 +234,10 @@ class Book extends React.Component {
     };
 }
 
-export default withRouter(Book);
+const mapToStateProps = state => {
+    return {
+        allowUser:state.auth.userAuth,
+    }
+}
+
+export default connect(mapToStateProps)(withRouter(Book));

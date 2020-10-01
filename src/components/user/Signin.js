@@ -73,15 +73,7 @@ class Signin extends Component {
             password: this.state.loginPassword,
         };
         console.log("User ", user);
-        let loginService = null;
-        if(!this.props.location.pathname.includes("admin"))
-        {
-            this.props.allowUser(true);
-            loginService = new UserService().loginUser(user)
-        }
-        else {
-            loginService = new AdminService().adminLogin(user);
-        }; 
+        let loginService = !this.props.location.pathname.includes("admin") ? new UserService().loginUser(user) : new AdminService().adminLogin(user);
         loginService.then((response) => {
             console.log(response);
             if (response.status === 200) {
@@ -90,6 +82,7 @@ class Signin extends Component {
                     localStorage.setItem('adminToken', response.headers.authorization);
                     localStorage.setItem('adminName', response.data.data);
                 } else {
+                    this.props.allowUser(true);
                     localStorage.setItem('userToken', response.headers.authorization);
                     localStorage.setItem('userName', response.data.data);
                 }

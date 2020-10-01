@@ -21,6 +21,7 @@ import DialogBoxPage from "./CustomDialogBox";
 import {withRouter} from "react-router";
 import Signup from "../user/Signup";
 import bookImage from "../../assets/images/bookImage.png"
+import { connect } from 'react-redux';
 
 class NavigationBar extends Component {
     constructor(props) {
@@ -39,7 +40,7 @@ class NavigationBar extends Component {
         })
     }
     handleClickOpen = () => {
-        localStorage.getItem('userToken') === null ?
+        this.props.allowUser === false ?
             this.setState({
                 isDialogBoxVisible: true,
             }) :
@@ -216,4 +217,10 @@ class NavigationBar extends Component {
     }
 }
 
-export default withRouter(NavigationBar);
+const mapToStateProps = state => {
+    return {
+        allowUser: state.auth.userAuth,
+    }
+}
+
+export default connect(mapToStateProps)(withRouter(NavigationBar));
