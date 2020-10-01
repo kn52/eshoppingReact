@@ -10,6 +10,8 @@ import WishListService from "../../services/WishListService";
 import DialogBoxPage from "../utils/CustomDialogBox";
 import Signup from "../user/Signup";
 import Footer from "../utils/Footer";
+import { addWishList } from '../../redux/actions/WishListAction';
+import { connect } from 'react-redux';
 
 class WishlistPage extends Component {
     constructor(props) {
@@ -25,16 +27,21 @@ class WishlistPage extends Component {
     getBooksAddedToCart() {
         new WishListService().fetchWishList().then(response => {
             console.log("cart fetch");
-            console.log(response);
-            (response.data.statusCode === 200) ?
+            console.log(response.data.data);
+            let data = response.data;
+            this.props.addWishList(data);
+            if (this.props.wishlist.statusCode === 200){
                 this.setState({
-                    AddedToCart: response.data.data,
-                    count: response.data.data.length
+                    AddedToCart: this.props.wishlist.data,
+                    count: this.props.wishlist.data.length
                 })
-                : (localStorage.getItem('userToken') === null || response.data.message === "Token Not Valid" || response.data.message === "Token Expired") &&
+            }
+            else {
+                (localStorage.getItem('userToken') === null || response.data.message === "Token Not Valid" || response.data.message === "Token Expired") &&
                 this.setState({
                     isDialogBoxVisible: true,
                 },()=> this.clearTokens())
+            }
         })
     };
 
@@ -47,7 +54,6 @@ class WishlistPage extends Component {
     }
 
     render() {
-        const AddedToCart = this.state.AddedToCart;
         return (
             <Fragment>
                 <div className="WishListMainDiv">
@@ -71,14 +77,14 @@ class WishlistPage extends Component {
                                 <h3>Your wishlist is empty</h3>
                             </div> :
                             <div container alignItems="center">
-                                {AddedToCart.map((id, index) =>
-                                    <div>{console.log(AddedToCart)}
+                                {this.props.wishlist.data.map((id, index) =>
+                                    <div>
                                         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                             <OrderSummary
                                                 bookDetails={id}
                                                 quantity={1}
                                             />
-                                            {index !== AddedToCart.length - 1 ?
+                                            {index !== this.props.wishlist.data.length - 1 ?
                                                 <Divider/> : console.log()
                                             }
                                         </Grid>
@@ -96,4 +102,16 @@ class WishlistPage extends Component {
     }
 }
 
-export default WishlistPage;
+const mapToStateProps = state => {
+    return {
+        wishlist: state.wish.wishList,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addWishList: (wishList) => { dispatch(addWishList(wishList)) }
+    }
+}
+
+export default connect(mapToStateProps,mapDispatchToProps)(WishlistPage);

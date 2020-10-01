@@ -83,8 +83,6 @@ class HomePage extends Component {
     getBooks = () => {
         new BookStoreService().fetchBooks(this.state.pageValue, this.state.searchText, this.state.selectValue)
             .then((response) => {
-                    console.log("fetchbook")
-                    console.log(response.data.data);
                     if (response.data.statusCode === 208){
                         this.setState({
                             bookList: [],
@@ -183,9 +181,9 @@ class HomePage extends Component {
                         this.props.history.push("/admin/login")
                     }
                     {this.state.loaded === false && <Loader/>}
-                    {this.state.loaded === true && this.state.count !== 0 &&
+                    {this.state.loaded === true && this.props.booklist.totalElements !== 0 &&
                     <Grid container spacing={4}>
-                        {this.state.bookList.map(id =>
+                        {this.props.booklist.content.map(id =>
                             <Grid alignItems="center" key={id.id} item xs={12} sm={6} md={4} lg={3} xl={2}>
                                 <Card
                                     bookId={id}
@@ -204,7 +202,7 @@ class HomePage extends Component {
                     <br/>
                 </Container>
                 <Grid container justify={"center"}>
-                    <Pagination size="small" count={Math.ceil(this.state.count / 12)} variant="text" color="secondary"
+                    <Pagination size="small" count={Math.ceil(this.props.booklist.totalElements / 12)} variant="text" color="secondary"
                                 onChange={this.onPageChange}/>
                 </Grid>
                 <br/>
@@ -215,7 +213,6 @@ class HomePage extends Component {
 }
 
 const mapToStateProps = state => {
-    console.log("Home "+ state.book.books);
     return {
         allowUser: state.auth.userAuth,
         booklist: state.book.books,

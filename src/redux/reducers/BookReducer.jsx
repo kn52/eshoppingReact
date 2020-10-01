@@ -5,11 +5,9 @@ const initialState = {
 }
 
 function BookReducer(state = initialState, action) {
-    console.log("Book Reducer");
     switch(action.type) {
     
     case ADD_BOOKS:
-      console.log("ADD");
       return {
           ...state,
           books:action.payload,
