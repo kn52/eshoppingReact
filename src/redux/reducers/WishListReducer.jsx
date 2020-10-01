@@ -5,11 +5,9 @@ const initialState = {
 }
 
 function WishListReducer(state = initialState, action) {
-    console.log("Book Reducer");
     switch(action.type) {
     
     case ADD_WISHLIST:
-      console.log("ADD");
       return {
           ...state,
           wishList:action.payload,

@@ -32,7 +32,8 @@ import Loader from "react-loader-spinner";
 import DialogBoxPage from "../utils/CustomDialogBox";
 import Signup from "../user/Signup";
 import Footer from "../utils/Footer";
-
+import { addCartList, addUserDetails, addCustomerDetails } from '../../redux/actions/CartAction';
+import { connect } from 'react-redux';
 
 class CartPage extends React.Component {
     constructor(props) {
@@ -174,10 +175,12 @@ class CartPage extends React.Component {
         get("cart").then(response => {
             console.log("cart fetch");
             console.log(response);
+            let data = response.data;
+            this.props.addCartList(data);
             (response.data.statusCode === 200) ?
                 this.setState({
-                    AddedToCart: response.data.data,
-                    count: response.data.data.length,
+                    AddedToCart: this.props.cartlist.data,
+                    count: this.props.cartlist.data.length,
                 }, () => this.calculateTotalPrice())
                 :
                 (localStorage.getItem('userToken') === null || response.data.message === "Token Not Valid" || response.data.message === "Token Expired") ?
@@ -201,10 +204,12 @@ class CartPage extends React.Component {
         new UserService().getUserDetails().then(response => {
             console.log("user fetch");
             console.log(response);
+            let data = response.data;
+            this.props.addUserDetails(data);
             if (response.data.statusCode === 200) {
                 this.setState({
-                    cName: response.data.data.fullName,
-                    cPhone: response.data.data.phoneNo,
+                    cName: this.props.userDetail.data.fullName,
+                    cPhone: this.props.userDetail.data.phoneNo,
                 })
             }
         })
@@ -214,14 +219,16 @@ class CartPage extends React.Component {
         new CustomerService().getCustomerDetails(this.state.type).then(response => {
             console.log("Customer Details fetch");
             console.log(response);
+            let data = response.data;
+            this.props.addCustomerDetails(data);
             if (response.data.statusCode === 200) {
                 this.setState({
-                        cPin: response.data.data.customerPinCode.toString(),
-                        cLocality: response.data.data.customerLocality,
-                        cAddress: response.data.data.customerAddress,
-                        cTown: response.data.data.customerTown,
-                        cLandmark: response.data.data.customerLandmark,
-                        type: response.data.data.customerAddressType,
+                        cPin: this.props.customerDetail.data.customerPinCode.toString(),
+                        cLocality: this.props.customerDetail.data.customerLocality,
+                        cAddress: this.props.customerDetail.data.customerAddress,
+                        cTown: this.props.customerDetail.data.customerTown,
+                        cLandmark: this.props.customerDetail.data.customerLandmark,
+                        type: this.props.customerDetail.data.customerAddressType,
                     }
                 );
             } else {
@@ -282,7 +289,6 @@ class CartPage extends React.Component {
     }
 
     render() {
-        console.log(this.state.totalPrice)
         const theme = createMuiTheme({
             palette: {
                 primary: {
@@ -606,4 +612,20 @@ class CartPage extends React.Component {
     }
 }
 
-export default withRouter(CartPage);
+const mapToStateProps = state => {
+    return {
+        cartlist: state.cart.cartList,
+        userDetail: state.cart.userDetail,
+        customerDetail: state.cart.customerDetail,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addCartList: (cartList) => { dispatch(addCartList(cartList)) },
+        addUserDetails: (userDetail) => { dispatch(addUserDetails(userDetail)) },
+        addCustomerDetails: (customerDetail) => { dispatch(addCustomerDetails(customerDetail)) }
+    }
+}
+
+export default connect(mapToStateProps,mapDispatchToProps)(withRouter(CartPage));

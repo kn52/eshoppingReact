@@ -30,7 +30,7 @@ class WishlistPage extends Component {
             console.log(response.data.data);
             let data = response.data;
             this.props.addWishList(data);
-            if (this.props.wishlist.statusCode === 200){
+            if (response.data.statusCode === 200){
                 this.setState({
                     AddedToCart: this.props.wishlist.data,
                     count: this.props.wishlist.data.length
